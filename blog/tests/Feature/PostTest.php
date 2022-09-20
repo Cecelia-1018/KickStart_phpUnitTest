@@ -18,7 +18,7 @@ class PostTest extends TestCase
 
         $response = $this->json('POST', '/api/v1/posts', $data);
 
-        $response->assertStatus(201)->assertJson(compact('data'));
+        $response->assertStatus(201)-> dump()->assertJson(compact('data'));
 
         $this->assertDatabaseHas('posts',[
           'title' => $data['title'],
